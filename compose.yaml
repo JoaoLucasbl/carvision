@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    # image: 'php:8-apache'
+    # container_name: app
+    # restart: always
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - '8080:80'
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+    links:
+      - db
+    x-develop:
+      watch:
+        - action: sync
+          path: .
+          target: /var/www/html
+          # ignore:
+          #   - node_modules/
+        # - action: rebuild
+        #   path: package.json
+  db:
+    # container_name: db
+    image: mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: "root"
+    ports:
+        - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:
