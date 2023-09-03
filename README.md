@@ -1,6 +1,6 @@
 # Carvision
 
-Projeto elaborado para Disciplina de Desenvolvimento Web-Servidor, com foco em uso do PHP.
+College project for the web development class, with focus on PHP use.
 
 
 ## Installation
@@ -10,15 +10,10 @@ This project use Docker to make easier the installation process. Follow the step
 
 - 1 . Download and install docker in your machine. [Get Started.](https://www.docker.com/get-started/ )
 
-- 2 . Check if your docker was installed  by tipping:
+- 2 . Check if your docker and docker-compose was installed successfully by tipping:
 
 ```bash
     docker -v
-```
-
-- 2 . Check if your docker-compose is also installed:
-
-```bash
     docker-compose -v
 ```
 
@@ -29,7 +24,7 @@ This project use Docker to make easier the installation process. Follow the step
     docker-compose build -d
 ```
 
-> -d is for start the containers in the background and leaves them running.
+> "-d" start the containers in the background and leaves them running.
 
 > We are able to set our project to be listen on port 8080 because of the apache that is included into the docker image.
 
