@@ -5,8 +5,8 @@ Projeto elaborado para Disciplina de Desenvolvimento Web-Servidor, com foco em u
 
 ## Installation
 
-This project contains a Dockerfile, that means you can run it as a docker container.
-> If you don't want to use docker, you can check the versions used for every tool on the Dockerfile.
+This project use Docker to make easier the installation process. Follow the steps below to configure the enviroment.
+> If you don't want to use docker, you can check the versions used for every tool on the compose.yaml.
 
 - 1 . Download and install docker in your machine. [Get Started.](https://www.docker.com/get-started/ )
 
