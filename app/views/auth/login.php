@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+if(isset($_SESSION['user']))
+    $_SESSION['user'] = NULL;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,13 +128,35 @@
     <div>
       <img class="logo" src="icon_txt.png">
     </div>
-    <input type="email" class="input-box" placeholder="Email">
-    <input type="password" class="input-box" placeholder="Senha">
-    <div class="button-box">
-      <button class="btn btn-primary btn-entrar">Entrar</button>
-      <div class="or-box">Ou</div>
-      <button class="btn btn-secondary btn-cadastrar">Cadastrar</button>
+    <?php
+        if(isset($_GET['error'])){
+    ?>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Aviso: </strong> <?php echo $_GET['error'] ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <?php
+        }
+    ?>
+    <?php
+        if(isset($_GET['success'])){
+    ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Aviso: </strong> <?php echo $_GET['success'] ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php
+        }
+    ?>
+    <form method="POST" action="../../modules/auth/login/LoginController.php">
+      <input name="username" type="text" class="input-box" placeholder="Username">
+      <input name="password" type="password" class="input-box" placeholder="Senha">
+      <div class="button-box">
+        <button type="submit" class="btn btn-primary btn-entrar">Entrar</button>
+        <div class="or-box">Ou</div>
+        <a href="./views/auth/register.php" class="btn btn-secondary btn-cadastrar">Cadastrar</a>
+      </div>
+    </form>
   </div>
   </section>
 </body>

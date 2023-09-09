@@ -1,6 +1,9 @@
 <?php
-if(!isset($_SESSION['id'])){
-    include './views/auth/login.php';
+session_start();
+if(!isset($_SESSION['user'])){
+    header('Location: ./views/auth/login.php');
+    exit();
 } else {
-    include './views/home/home.php';
+    header('Location: ./views/home/index.php');
+    exit();
 }
