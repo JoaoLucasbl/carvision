@@ -12,6 +12,7 @@ services:
       - '8080:80'
     volumes:
       - ./app:/var/www/html
+      - ./app/.htaccess:/var/www/html/.htaccess
     depends_on:
       - db
     links:
