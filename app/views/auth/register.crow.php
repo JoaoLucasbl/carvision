@@ -123,27 +123,19 @@
                 <div>
                     <img class="logo" src="icon_txt.png">
                 </div>
-                <?php
-                    if(isset($_GET['error'])){
-                ?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Aviso: </strong> <?php echo $_GET['error'] ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                    }
-                ?>
-                <?php
-                    if(isset($_GET['success'])){
-                ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Aviso: </strong> <?php echo $_GET['success'] ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                    }
-                ?>
-                <form method="POST" action="./modules/auth/register/RegisterController.php">
+                @if (isset($error))
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Aviso: </strong> {{ $error }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                @endif
+                @if (isset($success))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Aviso: </strong> {{ $success }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                @endif
+                <form method="POST" action="">
                     <input name="name" type="text" class="input-box" placeholder="Nome">
                     <input name="username" type="text" class="input-box" placeholder="Username">
                     <input name="password" type="password" class="input-box" placeholder="Senha">

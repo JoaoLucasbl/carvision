@@ -1,8 +1,3 @@
-<?php
-session_start(); 
-if(isset($_SESSION['user']))
-    $_SESSION['user'] = NULL;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,16 +123,12 @@ if(isset($_SESSION['user']))
     <div>
       <img class="logo" src="icon_txt.png">
     </div>
-    <?php
-        if(isset($_GET['error'])){
-    ?>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Aviso: </strong> <?php echo $_GET['error'] ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <?php
-        }
-    ?>
+    @if (isset( $error ))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Aviso: </strong> {{ $error }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <?php
         if(isset($_GET['success'])){
     ?>
@@ -148,13 +139,13 @@ if(isset($_SESSION['user']))
     <?php
         }
     ?>
-    <form method="POST" action="../../modules/auth/login/LoginController.php">
+    <form method="POST" action="">
       <input name="username" type="text" class="input-box" placeholder="Username">
       <input name="password" type="password" class="input-box" placeholder="Senha">
       <div class="button-box">
         <button type="submit" class="btn btn-primary btn-entrar">Entrar</button>
         <div class="or-box">Ou</div>
-        <a href="./views/auth/register.php" class="btn btn-secondary btn-cadastrar">Cadastrar</a>
+        <a href="/cadastro" class="btn btn-secondary btn-cadastrar">Cadastrar</a>
       </div>
     </form>
   </div>

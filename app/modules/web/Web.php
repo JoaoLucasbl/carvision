@@ -7,11 +7,15 @@ use Corviz\Crow\Crow;
 class Web
 {
     public function home($data){
-        Crow::render('home/index');
+        Crow::render('home/index', ['user' => $_SESSION['user']]);
     }
 
     public function login($data){
         Crow::render('auth/login');
+    }
+
+    public function register($data){
+        Crow::render('auth/register');
     }
 
     public function error($data){

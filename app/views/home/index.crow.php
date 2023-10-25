@@ -1,6 +1,3 @@
-<!-- <?php
-include "../../modules/auth/IfAuthenticated.php"
-?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,6 +10,6 @@ include "../../modules/auth/IfAuthenticated.php"
         </style>
     </head>
     <body>
-        Logado!
+        Logado! {{ print_r($user) }}
     </body>
 </html>
