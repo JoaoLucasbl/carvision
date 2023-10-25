@@ -8,12 +8,20 @@ class User
 {
     public function handle(Router $router): bool
     {
-        $user = false;
+        $user = $this->authenticated();
         if ($user) {
-            var_dump($router->current());
+            // var_dump($router->current());
             return true;
         }
         $router->redirect("/login");
         return false;
+    }
+
+    private function authenticated(){
+        session_start();
+        if(!isset($_SESSION['user'])){
+            return false;
+        }
+        return true;
     }
 }
