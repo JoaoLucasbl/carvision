@@ -14,17 +14,13 @@ use CoffeeCode\Router\Router;
 
 $router = new Router("http://localhost:8080"); 
 
-$router->namespace("App\Modules\Web");
+$router->namespace("App\Modules");
 
 $router->group(null);
 $router->get("/", "Web:home");
 
 $router->group("ooops");
-// $router->get("/{errorCode}", "Web:error");
-$router->get("/{errorCode}", function($data){
-    echo "<h1>{$data['errorCode']}</h1>";
-    var_dump($data);
-});
+$router->get("/{errorCode}", "Web:error");
 
 $router->dispatch();
 
