@@ -1,6 +1,7 @@
 {
     "require": {
-        "coffeecode/router": "^2.0"
+        "coffeecode/router": "^2.0",
+        "corviz/crow": "^2.0"
     },
     "autoload": {
         "psr-4": {

@@ -2,11 +2,16 @@
 
 namespace App\Modules;
 
+use Corviz\Crow\Crow;
+
 class Web
 {
     public function home($data){
-        echo "<h1>Olá mundo!</h1>";
-        var_dump($data);
+        Crow::render('home/index');
+    }
+
+    public function login($data){
+        Crow::render('auth/login');
     }
 
     public function error($data){

@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
 include "../../modules/auth/IfAuthenticated.php"
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
