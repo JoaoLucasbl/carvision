@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarVision - Feedback</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../../assets/images/icon_aba.ico" type="image/x-icon">
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const feedbackInput = document.getElementById("feedback-input");
+    const submitButton = document.getElementById("submit-feedback");
+    const commentsContainer = document.getElementById("comments");
+
+    submitButton.addEventListener("click", function() {
+        const feedbackText = feedbackInput.value;
+        if (feedbackText.trim() === "") {
+            return;
+        }
+
+        const comment = document.createElement("div");
+        comment.classList.add("comment");
+
+        const commentText = document.createElement("p");
+        commentText.textContent = feedbackText;
+
+        const commentDate = document.createElement("div");
+        commentDate.classList.add("date");
+        commentDate.textContent = new Date().toLocaleString();
+
+        comment.appendChild(commentText);
+        comment.appendChild(commentDate);
+
+        commentsContainer.appendChild(comment);
+
+        feedbackInput.value = "";
+    });
+});
+
+function toggleOnlineStatus() {
+    const onlineButton = document.getElementById('online-toggle');
+    const commentsContainer = document.getElementById('comments');
+    
+    // Verifica o estado atual
+    if (onlineButton.textContent === 'Online') {
+        onlineButton.textContent = 'Offline';
+        commentsContainer.style.display = 'none'; 
+    } else {
+        onlineButton.textContent = 'Online';
+        commentsContainer.style.display = 'block'; 
+    }
+}
+
+toggleOnlineStatus();
+
+</script>
+
+<body>
+<div class="diagonal-menor">
+</div>
+  <section class="feedback">
+      <div class="container-box6">
+        <div class="container-lista6">
+          <div class="feedback-box">
+            <textarea id="feedback-input" placeholder="Deixe seu feedback..."></textarea>
+            <br>
+            <button id="submit-feedback">Enviar</button>
+          </div>
+            <div class="feedback-limits">
+              <div class="comments" id="comments">
+            </div>
+            
+            <button id="online-toggle" onclick="toggleOnlineStatus()">Online</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  <script src="forum.js"></script>
+</body>
+</html>
